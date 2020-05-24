@@ -1,0 +1,315 @@
+
+<div class="container">
+  <h1>
+    variables html #
+  </h1>
+  <form (ngSubmit)="obtenerFormulario(formularioUsario)" #formularioUsario="ngForm">
+
+    <h4>Estado formulario</h4>
+    <h5>
+      <pre>
+        valid: {{formularioUsario.valid}}
+        invalid: {{formularioUsario.invalid}}
+        dirty: {{formularioUsario.dirty}}
+        touched: {{formularioUsario.touched}}
+        untouched: {{formularioUsario.untouched}}
+      </pre>
+    </h5>
+
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      [(ngModel)]="email"
+        name="email"
+        placeholder="ejemplo"
+        minlength="3"
+        required
+        pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"
+        #campoEmail="ngModel">
+      <h4>
+        Estados del campo email
+      </h4>
+      <pre>
+        valid: {{campoEmail.valid}}
+        invalid: {{campoEmail.invalid}}
+        dirty: {{campoEmail.dirty}}
+        touched: {{campoEmail.touched}}
+        untouched: {{campoEmail.untouched}}
+      </pre>
+
+      {{campoEmail.errors | json}}
+
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="(campoEmail.errors)
+    && campoEmail.dirty === true">
+      <p
+      *ngIf="campoEmail.errors.required">
+        Campo email requerido
+      </p>
+      <p
+      *ngIf="campoEmail.errors.minlength">
+        minimo 3
+      </p>
+      <p
+      *ngIf="campoEmail.errors.pattern">
+        No es email
+      </p>
+
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+      type="password"
+      class="form-control"
+      id="exampleInput"
+      aria-describedby="emai"
+      [(ngModel)]="contrasena"
+        name="contrasena"
+        placeholder="****"
+        minlength="4"
+        required
+        #campoContrasena="ngModel">
+    </div>
+
+
+    <button
+    [disabled]="formularioUsario.invalid"
+    type="submit"
+    class="btn btn-primary">
+    Submit</button>
+  </form>
+
+</div>
+  <!--/////////////////////////////////////////////////////////////////////////////-->
+<!--DEBER-->
+<div class="container" style="text-align: center;">
+  <h1>
+    DEBER
+  </h1>
+  <form (ngSubmit)="compararFormularios(formularioDeberUsario)" #formularioDeberUsario="ngForm">
+    <h4>NOMBRE</h4>
+    <div class="form-group">
+
+      <input
+      type="text"
+      class="form-control"
+      id="textHelp"
+      aria-describedby="text"
+      [(ngModel)]="name"
+        name="text"
+        placeholder="escriba su nombre"
+        minlength="5"
+        required
+        pattern="[a-zA-Z]{2,6}" 
+        #campoName="ngModel">
+        
+      {{campoName.errors | json}}
+      
+     </div>
+    <div
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="(campoName.errors)
+    && campoName.dirty === true">
+      <p
+      *ngIf="campoName.errors.required">
+        ESTE CAMPO ES OBLIGATORIO
+      </p>
+      <p
+      *ngIf="campoName.errors.minlength">
+       MINIMO 5 LETRAS
+      </p>
+      <p
+      *ngIf="campoName.errors.pattern">
+        NO ES NOMBRE
+      </p>
+    </div>
+ 
+
+    <!--/////////////////////////////////////////////////////////////////////////////-->
+   
+
+    <h4>APELLIDO</h4>
+      <div class="form-group">
+  
+        <input
+        type="text"
+        class="form-control"
+        id="text2"
+        aria-describedby="text"
+        [(ngModel)]="surname"
+          name="surname"
+          placeholder="escriba su apellido"
+          minlength="5"
+          required
+          pattern="[a-zA-Z]{2,6}" 
+          #campoSurname="ngModel">
+          
+        {{campoSurname.errors | json}}
+        
+       </div>
+      <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="(campoSurname.errors)
+      && campoSurname.dirty === true">
+        <p
+        *ngIf="campoSurname.errors.required">
+          ESTE CAMPO ES OBLIGATORIO
+        </p>
+        <p
+        *ngIf="campoSurname.errors.minlength">
+         MINIMO 5 LETRAS
+        </p>
+        <p
+        *ngIf="campoSurname.errors.pattern">
+          NO ES APELLIDO
+        </p>
+      </div>
+    
+      
+      <!--/////////////////////////////////////////////////////////////////////////////-->
+      
+      <h4>CORREO ELECTRONICO</h4>
+      <div class="form-group">
+        <input
+        type="email"
+        class="form-control"
+        id="email2"
+        aria-describedby="emailHelp"
+        [(ngModel)]="email2"
+          name="email2"
+          placeholder="escriba un correo valido"
+          required
+          pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"
+          #campoEmail2="ngModel">
+
+        {{campoEmail2.errors | json}}
+  
+      </div>
+      <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="(campoEmail2.errors)
+      && campoEmail2.dirty === true">
+        <p
+        *ngIf="campoEmail2.errors.required">
+          CAMPO OBLIGATORIO
+        </p>
+        <p
+        *ngIf="campoEmail2.errors.pattern">
+          ESTE CORREO NO ES VALIDO
+        </p>
+      </div>
+
+  <!--/////////////////////////////////////////////////////////////////////////////-->
+   
+  <h4>CLAVE</h4>
+  <div class="form-group">
+    <input
+    type="password"
+    class="form-control"
+    id="clave"
+    [(ngModel)]="contrasena2"
+      name="contrasena2"
+      placeholder="****"
+      minlength="4"
+      maxlength="4"
+      required
+      pattern="[1,2,3,4,5,6,7,8,9,0]{2,6}"
+      #campoContrasena2="ngModel">
+  </div>
+  <div
+  class="alert alert-danger"
+  role="alert"
+  *ngIf="(campoContrasena2.errors)
+  && campoEmail2.dirty === true">
+    <p
+    *ngIf="campoContrasena2.errors.required">
+      CAMPO OBLIGATORIO
+    </p>
+    <p
+    *ngIf="campoContrasena2.errors.minlength">
+     SOLO 4 DIGITOS
+    </p>
+    <p
+    *ngIf="campoContrasena2.errors.maxlength">
+     SOLO 4 DIGITOS
+    </p>
+    <p
+        *ngIf="campoContrasena2.errors.pattern">
+          ESTA CLAVE NO ES VALIDA
+        </p>
+  </div>
+
+<!--/////////////////////////////////////////////////////////////////////////////-->
+<h4>VERIFICACION DE CLAVE</h4>
+<div class="form-group">
+  <input
+  type="password"
+  class="form-control"
+  id="clave"
+  [(ngModel)]="contrasenaConf"
+    name="contrasenaConf"
+    placeholder="****"
+    minlength="4"
+    maxlength="4"
+    required
+    pattern="[1,2,3,4,5,6,7,8,9,0]{2,6}"
+    #campocontrasenaConf="ngModel">
+</div>
+
+  <script language="JavaScript" type="text/JavaScript">
+  function verif(contrasenaConf
+  {	if (contrasena2==campocontrasenaConf) 
+  { alert('las contraseñas coinciden'); return true }
+    else 
+  { alert('las dos contraseñas no son iguales'); return false }
+  }
+  </script>
+  
+  <div
+class="alert alert-danger"
+role="alert"
+*ngIf="(campocontrasenaConf.errors)
+&& campoEmail2.dirty === true">
+  <p
+  *ngIf="campocontrasenaConf.errors.required">
+    CAMPO OBLIGATORIO
+  </p>
+  <p
+  *ngIf="campocontrasenaConf.errors.minlength">
+   SOLO 4 DIGITOS
+  </p>
+  <p
+  *ngIf="campocontrasenaConf.errors.maxlength">
+   SOLO 4 DIGITOS
+  </p>
+  <p
+      *ngIf="campocontrasenaConf.errors.pattern">
+        ESTA CLAVE NO ES VALIDA
+      </p>
+</div>
+
+<!--/////////////////////////////////////////////////////////////////////////////-->
+      
+      <button
+      [disabled]="formularioDeberUsario.invalid"
+      type="submit"
+      class="btn btn-primary">
+      REGISTRARSE</button>
+ </form>
+  <br><br>
+</div>
