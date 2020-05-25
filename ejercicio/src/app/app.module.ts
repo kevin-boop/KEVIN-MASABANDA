@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutes } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,14 @@ import { ButtonModule } from 'primeng/button';
     NoEncontradoComponent,
     IniciarSesionComponent,
     LoginComponent,
+  
   ],
-  imports: [BrowserModule, AppRoutes, BrowserAnimationsModule, ButtonModule],
+  imports: [BrowserModule, 
+    AppRoutes, BrowserAnimationsModule, 
+    ButtonModule,
+    FormsModule,
+    MatInputModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
