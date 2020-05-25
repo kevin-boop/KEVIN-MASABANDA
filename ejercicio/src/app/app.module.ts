@@ -10,7 +10,8 @@ import { AppRoutes } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,15 @@ import {MatInputModule} from '@angular/material/input';
     NoEncontradoComponent,
     IniciarSesionComponent,
     LoginComponent,
-  
   ],
-  imports: [BrowserModule, 
-    AppRoutes, BrowserAnimationsModule, 
+  imports: [
+    BrowserModule,
+    AppRoutes,
+    BrowserAnimationsModule,
     ButtonModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    AutoCompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent],
